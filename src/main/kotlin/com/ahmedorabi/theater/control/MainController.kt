@@ -1,5 +1,6 @@
 package com.ahmedorabi.theater.control
 
+import com.ahmedorabi.theater.data.SeatRepository
 import com.ahmedorabi.theater.services.BookingService
 import com.ahmedorabi.theater.services.TheaterService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,6 +18,9 @@ class MainController {
     @Autowired
     lateinit var bookingService: BookingService
 
+    @Autowired
+    lateinit var seatRepository: SeatRepository
+
 //    @RequestMapping("helloworld")
 //    fun helloWorld() : ModelAndView {
 //       return ModelAndView("helloworld")
@@ -33,6 +37,14 @@ class MainController {
         bean.result = "Seat $selectedSeat is " + if (result) "available" else "booked"
         return ModelAndView("seatBooking", "bean", bean)
     }
+
+//    @RequestMapping("bootstrap")
+//    fun createInitialData(): ModelAndView {
+//        //create the data and save it to the database
+//        val seats = theaterService.seats
+//        seatRepository.saveAll(seats)
+//        return homePage()
+//    }
 
 }
 
